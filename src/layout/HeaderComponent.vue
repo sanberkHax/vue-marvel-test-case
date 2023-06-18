@@ -12,7 +12,7 @@ const favoritesCount = computed(() => store.getters['favorites/favoritesCount'])
   <header class="header">
     <img class="header__logo" src="@/assets/marvel_logo.png" alt="" />
     <button class="header__favorites">
-      <FavoriteIcon />
+      <FavoriteIcon :isActive="true" />
       <div class="header__favorites__badge">
         <span>{{ favoritesCount }}</span>
       </div>

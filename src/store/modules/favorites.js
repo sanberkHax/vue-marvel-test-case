@@ -1,5 +1,5 @@
 const state = {
-  items: []
+  items: [{ id: 1590, quantity: 1 }]
 }
 
 // getters
@@ -13,18 +13,25 @@ const getters = {
 
 // actions
 const actions = {
-  addToFavorites({ commit }, comic) {
-    commit('addFavorite', { id: comic.id })
+  addToFavorites({ commit, state }, id) {
+    if (!state.items.find((i) => i.id === id)) {
+      commit('addFavorite', id)
+    } else {
+      commit('removeFavorite', id)
+    }
   }
 }
 
 // mutations
 const mutations = {
-  addFavorite(state, { id }) {
+  addFavorite(state, id) {
     state.items.push({
       id,
       quantity: 1
     })
+  },
+  removeFavorite(state, id) {
+    state.items = state.items.filter((i) => i.id !== id)
   }
 }
 

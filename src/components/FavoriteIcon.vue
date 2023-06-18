@@ -1,3 +1,9 @@
+<script setup>
+const props = defineProps({
+  isActive: Boolean
+})
+</script>
+
 <template>
   <svg
     clip-rule="evenodd"
@@ -6,6 +12,7 @@
     stroke-miterlimit="2"
     viewBox="0 0 24 24"
     class="icon"
+    :class="[isActive ? 'active' : '']"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -18,6 +25,8 @@
 <style lang="scss" scoped>
 .icon {
   width: 30px;
+}
+.active {
   fill: red;
 }
 </style>
