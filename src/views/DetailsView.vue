@@ -15,7 +15,7 @@ const imageURL = computed(() => comic.value.thumbnail.path + '.' + comic.value.t
 <template>
   <main class="comic-details">
     <RouterLink to="/" class="back-btn"> Back </RouterLink>
-    <section class="comic-details__container">
+    <section v-if="comic" class="comic-details__container">
       <img :src="imageURL" alt="comic thumbnail" class="thumbnail" />
       <div class="comic-details__info">
         <h1 class="comic-details__title">{{ comic.title }}</h1>

@@ -6,13 +6,18 @@ import ComicItem from '@/components/ComicItem.vue'
 const store = useStore()
 
 const comics = computed(() => store.state.comics.items)
+const loading = computed(() => store.state.comics.loading)
 
-store.dispatch('comics/getComics')
+if (comics.value.length === 0) {
+  store.dispatch('comics/getComics')
+}
 </script>
 
 <template>
   <main>
-    <ul class="comic-list">
+    <h1 v-if="loading" class="loading">Loading...</h1>
+
+    <ul v-if="comics" class="comic-list">
       <ComicItem
         v-for="comic in comics"
         :id="comic.id"
@@ -27,6 +32,9 @@ store.dispatch('comics/getComics')
 </template>
 
 <style lang="scss">
+.loading {
+  text-align: center;
+}
 .comic-list {
   padding: 2rem;
   display: grid;

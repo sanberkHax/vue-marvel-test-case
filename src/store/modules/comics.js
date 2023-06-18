@@ -1,6 +1,7 @@
 // initial state
 const state = {
-  items: []
+  items: [],
+  loading: false
 }
 
 // getters
@@ -15,6 +16,7 @@ const getters = {
 const actions = {
   async getComics({ commit }) {
     try {
+      commit('setLoading', true)
       const response = await fetch(
         'https://gateway.marvel.com:443/v1/public/comics?format=comic&apikey=428e3fa12c7a4fe4fff041f6f306cb9c'
       )
@@ -22,6 +24,8 @@ const actions = {
       commit('setComics', responseJSON.data.results)
     } catch (err) {
       console.log(err)
+    } finally {
+      commit('setLoading', false)
     }
   }
 }
@@ -30,6 +34,9 @@ const actions = {
 const mutations = {
   setComics(state, comics) {
     state.items = comics
+  },
+  setLoading(state, loading) {
+    state.loading = loading
   }
 }
 
