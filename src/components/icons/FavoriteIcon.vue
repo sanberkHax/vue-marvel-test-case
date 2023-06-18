@@ -5,6 +5,7 @@
     stroke-linejoin="round"
     stroke-miterlimit="2"
     viewBox="0 0 24 24"
+    class="icon"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -13,3 +14,10 @@
     />
   </svg>
 </template>
+
+<style lang="scss" scoped>
+.icon {
+  width: 30px;
+  fill: red;
+}
+</style>

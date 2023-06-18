@@ -1,9 +1,15 @@
 const state = {
-  favorites: []
+  items: []
 }
 
 // getters
-const getters = {}
+const getters = {
+  favoritesCount: (state) => {
+    return state.items.reduce((total, comic) => {
+      return total + comic.quantity
+    }, 0)
+  }
+}
 
 // actions
 const actions = {
@@ -15,7 +21,7 @@ const actions = {
 // mutations
 const mutations = {
   addFavorite(state, { id }) {
-    state.favorites.push({
+    state.items.push({
       id,
       quantity: 1
     })
