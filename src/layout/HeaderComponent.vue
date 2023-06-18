@@ -1,11 +1,22 @@
 <script setup>
-import FavoriteButton from '@/components/FavoriteButton.vue'
+import FavoriteIcon from '@/components/FavoriteIcon.vue'
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+
+const store = useStore()
+
+const favoritesCount = computed(() => store.getters['favorites/favoritesCount'])
 </script>
 
 <template>
   <header class="header">
     <img class="header__logo" src="@/assets/marvel_logo.png" alt="" />
-    <FavoriteButton />
+    <button class="header__favorites">
+      <FavoriteIcon />
+      <div class="header__favorites__badge">
+        <span>{{ favoritesCount }}</span>
+      </div>
+    </button>
   </header>
 </template>
 
@@ -19,6 +30,21 @@ import FavoriteButton from '@/components/FavoriteButton.vue'
   justify-content: space-between;
   &__logo {
     width: 100px;
+  }
+  &__favorites {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    &__badge {
+      position: absolute;
+      top: 20px;
+      right: 0;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
 </style>
