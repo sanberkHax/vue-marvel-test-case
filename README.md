@@ -1,6 +1,6 @@
 # marvel-vue-test-case
 
-This template should help get you started developing with Vue 3 in Vite.
+Vue test case for displaying comics and details using Marvel's API
 
 ## Recommended IDE Setup
 
