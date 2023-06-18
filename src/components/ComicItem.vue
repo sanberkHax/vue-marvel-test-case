@@ -1,5 +1,5 @@
 <script setup>
-import { computed, watch } from 'vue'
+import { computed } from 'vue'
 import FavoriteButton from '@/components/FavoriteButton.vue'
 import { useStore } from 'vuex'
 import { RouterLink } from 'vue-router'
@@ -16,9 +16,6 @@ const props = defineProps({
 
 const isFavorite = computed(() => store.state.favorites.items.find((i) => i.id === props.id))
 
-watch(isFavorite, () => {
-  console.log(isFavorite.value)
-})
 const imageURL = computed(() => props.thumbnail.path + '.' + props.thumbnail.extension)
 </script>
 

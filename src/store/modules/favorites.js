@@ -1,5 +1,5 @@
 const state = {
-  items: [{ id: 1590, quantity: 1 }]
+  items: []
 }
 
 // getters

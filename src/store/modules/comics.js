@@ -4,7 +4,12 @@ const state = {
 }
 
 // getters
-const getters = {}
+const getters = {
+  getComic: (state) => (id) => {
+    const item = state.items.find((i) => i.id == id)
+    return item
+  }
+}
 
 // actions
 const actions = {
