@@ -27,6 +27,9 @@ const favoritesCount = computed(() => store.getters['favorites/favoritesCount'])
   background-color: $primary-bg;
   display: flex;
   align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 2;
   justify-content: space-between;
   &__logo {
     width: 100px;
